@@ -1,0 +1,104 @@
+<div class="tarjeta">
+  <h2>Operaciones con Matrices</h2>
+  
+  <div class="button-group">
+    <button (click)="cambiarOperacion('suma')" [class.active]="operacionActual() === 'suma'">Suma</button>
+    <button (click)="cambiarOperacion('multiplicacion')" [class.active]="operacionActual() === 'multiplicacion'">Multiplicación</button>
+    <button (click)="cambiarOperacion('escalar')" [class.active]="operacionActual() === 'escalar'">Escalar</button>
+  </div>
+  
+  <div class="matrices-container">
+    @if (operacionActual() === 'suma') {
+      <!-- Para suma: solo un par de dimensiones para ambas matrices -->
+      <div class="dimensiones-globales">
+        <div class="dimensiones">
+          <input type="text" [(ngModel)]="filasA" (change)="actualizarDimensionesSuma()" (keydown)="validarInputDimensiones($event)" />
+          <span>×</span>
+          <input type="text" [(ngModel)]="columnasA" (change)="actualizarDimensionesSuma()" (keydown)="validarInputDimensiones($event)" />
+        </div>
+      </div>
+    }
+    
+    <div class="matriz-input">
+      <label>Matriz A</label>
+      @if (operacionActual() !== 'suma') {
+        <div class="dimensiones">
+          <input type="text" [(ngModel)]="filasA" (change)="actualizarDimensionesA()" (keydown)="validarInputDimensiones($event)" />
+          <span>×</span>
+          <input type="text" [(ngModel)]="columnasA" (change)="actualizarDimensionesA()" (keydown)="validarInputDimensiones($event)" />
+        </div>
+      }
+      <div class="matriz-grid">
+        @for (fila of matrizA(); track $index; let i = $index) {
+          <div class="matriz-fila">
+            @for (valor of fila; track $index; let j = $index) {
+              <input 
+                type="text" 
+                [ngModel]="valor"
+                (ngModelChange)="actualizarValorA(i, j, $event)"
+                (keydown)="validarInput($event)"
+                placeholder="0"
+              />
+            }
+          </div>
+        }
+      </div>
+    </div>
+    
+    @if (operacionActual() === 'escalar') {
+      <div class="operador-escalar">
+        <span>×</span>
+        <input type="text" [(ngModel)]="escalar" class="input-escalar" (keydown)="validarInput($event)" />
+      </div>
+    } @else {
+      <div class="operador">{{ operacionActual() === 'suma' ? '+' : '×' }}</div>
+      
+      <div class="matriz-input">
+        <label>Matriz B</label>
+        @if (operacionActual() !== 'suma') {
+          <div class="dimensiones">
+            <input type="text" [(ngModel)]="filasB" (change)="actualizarDimensionesB()" (keydown)="validarInputDimensiones($event)" />
+            <span>×</span>
+            <input type="text" [(ngModel)]="columnasB" (change)="actualizarDimensionesB()" (keydown)="validarInputDimensiones($event)" />
+          </div>
+        }
+        <div class="matriz-grid">
+          @for (fila of matrizB(); track $index; let i = $index) {
+            <div class="matriz-fila">
+              @for (valor of fila; track $index; let j = $index) {
+                <input 
+                  type="text" 
+                  [ngModel]="valor"
+                  (ngModelChange)="actualizarValorB(i, j, $event)"
+                  (keydown)="validarInput($event)"
+                  placeholder="0"
+                />
+              }
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+  
+  <button class="btn-calcular" (click)="calcular()">Calcular</button>
+  
+  @if (error()) {
+    <div class="error">{{ error() }}</div>
+  }
+  
+  @if (resultado()) {
+    <div class="resultado-matriz">
+      <label>Resultado:</label>
+      <div class="matriz-grid resultado">
+        @for (fila of resultado()!; track $index) {
+          <div class="matriz-fila">
+            @for (valor of fila; track $index) {
+              <div class="valor-resultado">{{ valor }}</div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

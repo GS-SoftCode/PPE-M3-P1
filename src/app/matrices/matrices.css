@@ -1,0 +1,242 @@
+.tarjeta {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  background: linear-gradient(145deg, #2a2a2a 0%, #1f1f1f 100%);
+  border: 1px solid #00bcd4;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+  margin-top: 0;
+  color: #00bcd4;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.button-group button {
+  padding: 10px 24px;
+  border: none;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.button-group button:hover {
+  background: linear-gradient(135deg, #00bcd4 0%, #00acc1 100%);
+  transform: translateY(-2px);
+}
+
+.button-group button.active {
+  background: linear-gradient(135deg, #00bcd4 0%, #00acc1 100%);
+}
+
+.matrices-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.dimensiones-globales {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.dimensiones-globales label {
+  font-weight: 600;
+  color: #26c6da;
+  font-size: 15px;
+}
+
+.matriz-input {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.matriz-input label {
+  font-weight: 600;
+  text-align: center;
+  color: #26c6da;
+  font-size: 15px;
+}
+
+.dimensiones {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.dimensiones input {
+  width: 55px;
+  padding: 8px;
+  border: 2px solid #3a3a3a;
+  background-color: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: border-color 0.3s;
+}
+
+.dimensiones input:focus {
+  outline: none;
+  border-color: #00bcd4;
+}
+
+.dimensiones span {
+  color: #00bcd4;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.matriz-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  border: 2px solid #00bcd4;
+  background: linear-gradient(145deg, #1a1a1a 0%, #252525 100%);
+  border-radius: 8px;
+}
+
+.matriz-fila {
+  display: flex;
+  gap: 6px;
+}
+
+.matriz-fila input {
+  width: 60px;
+  padding: 10px;
+  border: 2px solid #3a3a3a;
+  background-color: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: border-color 0.3s;
+}
+
+.matriz-fila input:focus {
+  outline: none;
+  border-color: #00bcd4;
+}
+
+.operador {
+  font-size: 36px;
+  font-weight: bold;
+  color: #00bcd4;
+  align-self: center;
+}
+
+.operador-escalar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  align-self: center;
+}
+
+.operador-escalar span {
+  font-size: 36px;
+  font-weight: bold;
+  color: #00bcd4;
+}
+
+.input-escalar {
+  width: 90px;
+  padding: 12px;
+  border: 2px solid #00bcd4;
+  background-color: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.input-escalar:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+.btn-calcular {
+  display: block;
+  margin: 25px auto;
+  padding: 14px 45px;
+  background: linear-gradient(135deg, #00bcd4 0%, #00acc1 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.btn-calcular:hover {
+  transform: translateY(-2px);
+}
+
+.error {
+  color: #00bcd4;
+  text-align: center;
+  padding: 12px;
+  background: linear-gradient(145deg, #1a2a2a 0%, #151f1f 100%);
+  border: 2px solid #00bcd4;
+  margin-top: 15px;
+  border-radius: 6px;
+}
+
+.resultado-matriz {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resultado-matriz label {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: #26c6da;
+}
+
+.matriz-grid.resultado {
+  background: linear-gradient(145deg, #1a2a1a 0%, #152015 100%);
+  border-color: #4caf50;
+}
+
+.valor-resultado {
+  width: 60px;
+  padding: 10px;
+  border: 2px solid #4caf50;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #1a1a1a;
+  color: #4caf50;
+  border-radius: 4px;
+}

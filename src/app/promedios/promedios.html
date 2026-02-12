@@ -1,0 +1,38 @@
+<div class="tarjeta">
+  <h2>Cálculo de Promedios</h2>
+  
+  <div class="input-group">
+    <input 
+      type="text" 
+      [(ngModel)]="valorInput" 
+      placeholder="Ingrese un valor numérico"
+      (keyup.enter)="agregarValor()"
+      (keydown)="validarInput($event)"
+    />
+    <button (click)="agregarValor()">Agregar</button>
+  </div>
+  
+  <div class="valores-lista">
+    @for (valor of datos(); track $index) {
+      <div class="valor-item">
+        <span>{{ valor }}</span>
+        <button class="btn-eliminar" (click)="eliminarValor($index)">×</button>
+      </div>
+    }
+  </div>
+  
+  <div class="resultados">
+    <div class="resultado-item">
+      <label>Media:</label>
+      <div class="resultado-valor">{{ media.toFixed(2) }}</div>
+    </div>
+    <div class="resultado-item">
+      <label>Mediana:</label>
+      <div class="resultado-valor">{{ mediana.toFixed(2) }}</div>
+    </div>
+    <div class="resultado-item">
+      <label>Moda:</label>
+      <div class="resultado-valor">{{ moda }}</div>
+    </div>
+  </div>
+</div>

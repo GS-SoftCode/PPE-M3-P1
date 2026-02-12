@@ -1,12 +1,21 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { PromediosComponent } from './promedios/promedios';
+import { MatricesComponent } from './matrices/matrices';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [PromediosComponent, MatricesComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('estadistica-app-front');
+  protected readonly vistaActual = signal<'promedios' | 'matrices' | null>(null);
+
+  mostrarPromedios() {
+    this.vistaActual.set('promedios');
+  }
+
+  mostrarMatrices() {
+    this.vistaActual.set('matrices');
+  }
 }
